@@ -1,116 +1,85 @@
-# SSR CLI
+# ssr_cli
 
-Outils en ligne de commande pour SSR Framework.
+Command-line interface for SSR Framework.
+
+## Overview
+
+`ssr_cli` provides command-line tools for creating and managing SSR Framework projects.
 
 ## Installation
 
 ```bash
-# Depuis le répertoire du framework
+# From the framework directory
 cd packages/ssr_cli
-dart pub get
 dart pub global activate --source path .
 ```
 
-## Commandes
-
-### `ssr create`
-
-Créer un nouveau projet SSR.
+## Usage
 
 ```bash
+# Create a new project
 ssr create my-app
-```
 
-Options :
-- `--template <name>` : Template à utiliser (basic, full)
-- `--force` : Forcer la création même si le dossier existe
+# Generate a page
+ssr generate page contact
 
-### `ssr generate`
-
-Générer des pages, composants ou services.
-
-```bash
-# Générer une page
-ssr generate page profile
-
-# Générer un composant
+# Generate a component
 ssr generate component user-card
 
-# Générer un service
+# Generate a service
 ssr generate service auth
+
+# Build for production
+ssr build --release
+
+# Start development server
+ssr serve
 ```
+
+## Commands
+
+### `ssr create <project-name>`
+
+Create a new SSR project with the following structure:
+- `bin/server.dart` - Server entry point
+- `lib/pages/` - SSR pages
+- `lib/components/` - AngularDart components
+- `lib/services/` - Services
+- `templates/` - Jinja templates
+- `public/` - Static files
+- `web/` - Client entry point
+
+### `ssr generate <type> <name>`
+
+Generate code for:
+- **page** - Creates page class and template
+- **component** - Creates AngularDart component
+- **service** - Creates service class
 
 ### `ssr build`
 
-Construire le projet pour la production.
-
-```bash
-ssr build
-```
-
-Options :
-- `--release` : Build en mode release (optimisé)
+Build the project for production:
+- Runs `build_runner build`
+- Copies generated files to `public/`
+- Optimizes JavaScript bundles
 
 ### `ssr serve`
 
-Démarrer le serveur de développement.
+Start the development server:
+- Default port: 3000
+- Custom port: `ssr serve --port 8080`
 
-```bash
-ssr serve
-```
+## API
 
-Options :
-- `--port <port>` : Port du serveur (défaut: 3000)
+### Utilities
 
-## Exemples
+- **`FileUtils`** - File manipulation utilities
+- **`TemplateUtils`** - String manipulation utilities
 
-### Créer un nouveau projet
+## Documentation
 
-```bash
-ssr create my-blog
-cd my-blog
-dart pub get
-ssr build
-ssr serve
-```
+Full API documentation: [docs/api/ssr_cli.md](../../docs/api/ssr_cli.md)
 
-### Ajouter une page
-
-```bash
-ssr generate page contact
-# Modifier lib/pages/contact_page.dart
-# Modifier templates/pages/contact.html
-# Ajouter la page dans bin/server.dart
-```
-
-### Ajouter un composant
-
-```bash
-ssr generate component header
-# Modifier lib/components/header_component.dart
-# Utiliser dans vos templates
-```
-
-## Structure d'un projet
-
-```
-my-app/
-├── bin/
-│   └── server.dart          # Point d'entrée serveur
-├── lib/
-│   ├── pages/               # Pages SSR
-│   ├── components/          # Composants AngularDart
-│   └── services/            # Services
-├── web/
-│   ├── index.html           # HTML de base
-│   └── main.dart            # Point d'entrée client
-├── public/                  # Fichiers statiques
-├── templates/               # Templates Jinja
-│   ├── base.html
-│   └── pages/
-└── test/                    # Tests
-```
-
-## Licence
+## License
 
 MIT

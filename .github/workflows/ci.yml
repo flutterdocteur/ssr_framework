@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Dart
+      uses: dart-lang/setup-dart@v1
+      with:
+        sdk: '3.12.2'
+    
+    - name: Install dependencies (ssr_core)
+      run: dart pub get
+      working-directory: packages/ssr_core
+    
+    - name: Install dependencies (ssr_server)
+      run: dart pub get
+      working-directory: packages/ssr_server
+    
+    - name: Install dependencies (ssr_client)
+      run: dart pub get
+      working-directory: packages/ssr_client
+    
+    - name: Install dependencies (ssr_router)
+      run: dart pub get
+      working-directory: packages/ssr_router
+    
+    - name: Install dependencies (ssr_hydration)
+      run: dart pub get
+      working-directory: packages/ssr_hydration
+    
+    - name: Install dependencies (ssr_seo)
+      run: dart pub get
+      working-directory: packages/ssr_seo
+    
+    - name: Install dependencies (ssr_pwa)
+      run: dart pub get
+      working-directory: packages/ssr_pwa
+    
+    - name: Install dependencies (ssr_cli)
+      run: dart pub get
+      working-directory: packages/ssr_cli
+    
+    - name: Install dependencies (ssr_example)
+      run: dart pub get
+      working-directory: packages/ssr_example
+    
+    - name: Run tests (ssr_server)
+      run: dart test
+      working-directory: packages/ssr_server
+    
+    - name: Run tests (ssr_client)
+      run: dart test -p chrome
+      working-directory: packages/ssr_client
+    
+    - name: Run tests (ssr_example)
+      run: dart test
+      working-directory: packages/ssr_example
+    
+    - name: Check formatting
+      run: dart format --output=none --set-exit-if-changed .
+      working-directory: packages/ssr_core
+    
+    - name: Analyze code
+      run: dart analyze
+      working-directory: packages/ssr_core

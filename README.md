@@ -25,7 +25,13 @@ ssr_framework/
 │   ├── ssr_hydration/     # Hydratation automatique
 │   ├── ssr_seo/           # SEO utilities
 │   ├── ssr_pwa/           # PWA utilities
+│   ├── ssr_cli/           # Command-line interface
 │   └── ssr_example/       # Application d'exemple
+├── docs/                  # Documentation complète
+├── LICENSE
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+└── README.md
 ```
 
 ## Installation
@@ -168,15 +174,39 @@ PWA utilities :
 - `ManifestGenerator` : Génération manifest.json
 - `ServiceWorkerGenerator` : Génération service worker
 
+### ssr_cli
+Command-line interface :
+- `ssr create` : Créer un projet
+- `ssr generate` : Générer des pages/composants/services
+- `ssr build` : Build production
+- `ssr serve` : Démarrer le serveur
+
+## Documentation
+
+- 📖 [Documentation complète](docs/README.md)
+- 🚀 [Guide de démarrage rapide](docs/guides/quickstart.md)
+- 📦 [Installation](docs/guides/installation.md)
+- 🌐 [Déploiement](docs/guides/deployment.md)
+- ⚙️ [Configuration avancée](docs/guides/configuration.md)
+- ✨ [Best practices](docs/guides/best-practices.md)
+- 🔧 [Troubleshooting](docs/guides/troubleshooting.md)
+- ❓ [FAQ](docs/faq.md)
+- 📚 [API Reference](docs/api/README.md)
+- 💡 [Exemples](docs/examples/README.md)
+
 ## Roadmap
 
 - [x] Phase 1 : Prototype fonctionnel
 - [x] Phase 2 : SEO & PWA
 - [x] Phase 3 : Base de données SQLite
 - [x] Phase 4 : Tests d'intégration
-- [ ] Phase 5 : Restructuration en packages (en cours)
-- [ ] Phase 6 : Documentation & exemples
+- [x] Phase 5 : Restructuration en packages
+- [x] Phase 6 : Documentation & exemples
 - [ ] Phase 7 : Publication sur pub.dev
+
+## Contribuer
+
+Les contributions sont les bienvenues ! Voir [CONTRIBUTING.md](CONTRIBUTING.md) pour plus de détails.
 
 ## Licence
 

@@ -1,0 +1,100 @@
+name: Publish to pub.dev
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
+
+jobs:
+  publish:
+    permissions:
+      id-token: write
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Dart
+      uses: dart-lang/setup-dart@v1
+      with:
+        sdk: '3.12.2'
+    
+    - name: Install dependencies (ssr_core)
+      run: dart pub get
+      working-directory: packages/ssr_core
+    
+    - name: Publish ssr_core
+      run: dart pub publish --force
+      working-directory: packages/ssr_core
+      env:
+        PUB_TOKEN: ${{ secrets.PUB_TOKEN }}
+    
+    - name: Install dependencies (ssr_server)
+      run: dart pub get
+      working-directory: packages/ssr_server
+    
+    - name: Publish ssr_server
+      run: dart pub publish --force
+      working-directory: packages/ssr_server
+      env:
+        PUB_TOKEN: ${{ secrets.PUB_TOKEN }}
+    
+    - name: Install dependencies (ssr_client)
+      run: dart pub get
+      working-directory: packages/ssr_client
+    
+    - name: Publish ssr_client
+      run: dart pub publish --force
+      working-directory: packages/ssr_client
+      env:
+        PUB_TOKEN: ${{ secrets.PUB_TOKEN }}
+    
+    - name: Install dependencies (ssr_router)
+      run: dart pub get
+      working-directory: packages/ssr_router
+    
+    - name: Publish ssr_router
+      run: dart pub publish --force
+      working-directory: packages/ssr_router
+      env:
+        PUB_TOKEN: ${{ secrets.PUB_TOKEN }}
+    
+    - name: Install dependencies (ssr_hydration)
+      run: dart pub get
+      working-directory: packages/ssr_hydration
+    
+    - name: Publish ssr_hydration
+      run: dart pub publish --force
+      working-directory: packages/ssr_hydration
+      env:
+        PUB_TOKEN: ${{ secrets.PUB_TOKEN }}
+    
+    - name: Install dependencies (ssr_seo)
+      run: dart pub get
+      working-directory: packages/ssr_seo
+    
+    - name: Publish ssr_seo
+      run: dart pub publish --force
+      working-directory: packages/ssr_seo
+      env:
+        PUB_TOKEN: ${{ secrets.PUB_TOKEN }}
+    
+    - name: Install dependencies (ssr_pwa)
+      run: dart pub get
+      working-directory: packages/ssr_pwa
+    
+    - name: Publish ssr_pwa
+      run: dart pub publish --force
+      working-directory: packages/ssr_pwa
+      env:
+        PUB_TOKEN: ${{ secrets.PUB_TOKEN }}
+    
+    - name: Install dependencies (ssr_cli)
+      run: dart pub get
+      working-directory: packages/ssr_cli
+    
+    - name: Publish ssr_cli
+      run: dart pub publish --force
+      working-directory: packages/ssr_cli
+      env:
+        PUB_TOKEN: ${{ secrets.PUB_TOKEN }}
