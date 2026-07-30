@@ -1,7 +1,10 @@
 name: ssr_core
-description: Core interfaces and types for SSR Framework
+description: Core interfaces and types for SSR Framework - A modern Dart framework inspired by Next.js
 version: 0.1.0
-publish_to: none
+homepage: https://github.com/flutterdocteur/ssr_framework
+repository: https://github.com/flutterdocteur/ssr_framework
+documentation: https://github.com/flutterdocteur/ssr_framework/blob/main/docs/api/ssr_core.md
+issue_tracker: https://github.com/flutterdocteur/ssr_framework/issues
 
 environment:
   sdk: ^3.12.2

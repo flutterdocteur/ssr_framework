@@ -63,4 +63,4 @@ SSR Framework depends on several third-party packages. We monitor these dependen
 For security concerns, please contact:
 
 - Email: security@ssrframework.dev
-- GitHub Security Advisory: [Create advisory](https://github.com/yourusername/ssr_framework/security/advisories/new)
+- GitHub Security Advisory: [Create advisory](https://github.com/flutterdocteur/ssr_framework/security/advisories/new)

@@ -39,7 +39,7 @@ sudo dnf install dart
 
 ```bash
 # Cloner le repository
-git clone https://github.com/yourusername/ssr_framework.git
+git clone https://github.com/flutterdocteur/ssr_framework.git
 cd ssr_framework
 
 # Installer les dépendances
@@ -54,7 +54,7 @@ dart pub global activate --source path .
 
 ```bash
 # Cloner le repository
-git clone https://github.com/yourusername/ssr_framework.git
+git clone https://github.com/flutterdocteur/ssr_framework.git
 cd ssr_framework
 
 # Installer les dépendances pour chaque package

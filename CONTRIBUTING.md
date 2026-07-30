@@ -98,7 +98,7 @@ Key points:
 1. Fork the repository
 2. Clone your fork:
    ```bash
-   git clone https://github.com/yourusername/ssr_framework.git
+   git clone https://github.com/flutterdocteur/ssr_framework.git
    cd ssr_framework
    ```
 3. Install dependencies:

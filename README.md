@@ -38,7 +38,7 @@ ssr_framework/
 
 ```bash
 # Cloner le repository
-git clone https://github.com/yourusername/ssr_framework.git
+git clone https://github.com/flutterdocteur/ssr_framework.git
 cd ssr_framework
 
 # Installer les dépendances

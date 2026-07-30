@@ -33,7 +33,7 @@ Tableau de bord avec :
 ### 1. Cloner le repository
 
 ```bash
-git clone https://github.com/yourusername/ssr_framework.git
+git clone https://github.com/flutterdocteur/ssr_framework.git
 cd ssr_framework
 ```
 

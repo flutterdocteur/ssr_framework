@@ -48,7 +48,7 @@ brew install dart
 
 # SQLite est inclus par défaut
 # Installer le framework
-git clone https://github.com/yourusername/ssr_framework.git
+git clone https://github.com/flutterdocteur/ssr_framework.git
 cd ssr_framework
 ./install.sh
 ```
@@ -63,7 +63,7 @@ sudo apt-get install dart libsqlite3-dev
 sudo dnf install dart sqlite-devel
 
 # Installer le framework
-git clone https://github.com/yourusername/ssr_framework.git
+git clone https://github.com/flutterdocteur/ssr_framework.git
 cd ssr_framework
 ./install.sh
 ```
@@ -316,4 +316,4 @@ Ouvrir une issue sur GitHub avec :
 - [Documentation](README.md)
 - [Exemples](examples/README.md)
 - [API Reference](api/README.md)
-- [GitHub Repository](https://github.com/yourusername/ssr_framework)
+- [GitHub Repository](https://github.com/flutterdocteur/ssr_framework)

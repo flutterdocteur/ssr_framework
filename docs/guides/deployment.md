@@ -51,7 +51,7 @@ sudo su - ssruser
 
 ```bash
 # Cloner le projet
-git clone https://github.com/yourusername/my-app.git
+git clone https://github.com/flutterdocteur/my-app.git
 cd my-app
 
 # Installer les dépendances

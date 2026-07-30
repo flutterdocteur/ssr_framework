@@ -1,25 +1,22 @@
 name: ssr_client
-description: Client-side hydration and routing for SSR Framework
+description: Client-side hydration and routing for SSR Framework - Built on AngularDart
 version: 0.1.0
-publish_to: none
+homepage: https://github.com/flutterdocteur/ssr_framework
+repository: https://github.com/flutterdocteur/ssr_framework
+documentation: https://github.com/flutterdocteur/ssr_framework/blob/main/docs/api/ssr_client.md
+issue_tracker: https://github.com/flutterdocteur/ssr_framework/issues
 
 environment:
   sdk: ^3.12.2
 
 dependencies:
-  ssr_core:
-    path: ../ssr_core
-  angulardart:
-    path: ../../../angulardart_upgrade_v3/angular/angular
+  ssr_core: ^0.1.0
+  angulardart: ^7.0.0
   http: ^1.2.0
 
 dev_dependencies:
   build_runner: ^2.4.0
   build_web_compilers: ^4.0.0
   lints: ^4.0.0
-  angulardart_test:
-    path: ../../../angulardart_upgrade_v3/angular/angular_test
-
-dependency_overrides:
-  angulardart:
-    path: ../../../angulardart_upgrade_v3/angular/angular
+  angulardart_test: ^0.4.0
+  test: ^1.25.0
