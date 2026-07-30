@@ -1,0 +1,25 @@
+name: ssr_client
+description: Client-side hydration and routing for SSR Framework
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  ssr_core:
+    path: ../ssr_core
+  angulardart:
+    path: ../../../angulardart_upgrade_v3/angular/angular
+  http: ^1.2.0
+
+dev_dependencies:
+  build_runner: ^2.4.0
+  build_web_compilers: ^4.0.0
+  lints: ^4.0.0
+  angulardart_test:
+    path: ../../../angulardart_upgrade_v3/angular/angular_test
+
+dependency_overrides:
+  angulardart:
+    path: ../../../angulardart_upgrade_v3/angular/angular
