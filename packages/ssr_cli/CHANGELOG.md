@@ -5,6 +5,21 @@ All notable changes to SSR Framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.2] - 2025-07-31
+
+### Fixed
+- Wire up command options in main parser (--template, --force, --release, --port)
+- Fix argument parsing for all subcommands
+
+## [0.1.1] - 2025-07-31
+
+### Fixed
+- Escape `$` in regex replacement string in `template_utils.dart`
+- Fix Dart 3 `catch` syntax in `ssr_cli.dart`
+- Fix nested triple-quoted strings in `generate.dart` component template
+- Remove unused imports in `create.dart` and `generate.dart`
+- Remove unused `targetDir` variable in `build.dart`
+
 ## [0.1.0] - 2024-01-26
 
 ### Added

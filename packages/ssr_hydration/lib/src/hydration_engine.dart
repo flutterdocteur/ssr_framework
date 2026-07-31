@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:ssr_core/ssr_core.dart';
 
 /// Hydration engine for transferring server state to client
 class HydrationEngine {

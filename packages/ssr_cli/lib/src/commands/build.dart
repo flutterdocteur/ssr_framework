@@ -43,7 +43,6 @@ class BuildCommand {
     print('Copying built files to public directory...');
 
     final sourceDir = Directory('.dart_tool/build/generated/${_getProjectName()}/web');
-    final targetDir = Directory('public');
 
     if (!await sourceDir.exists()) {
       stderr.writeln('Error: Build output directory not found');

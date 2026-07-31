@@ -6,12 +6,33 @@ import 'package:ssr_cli/src/commands/build.dart';
 import 'package:ssr_cli/src/commands/serve.dart';
 
 void main(List<String> arguments) async {
-  final parser = ArgParser()
-    ..addCommand('create')
-    ..addCommand('generate')
-    ..addCommand('build')
-    ..addCommand('serve')
-    ..addFlag('help', abbr: 'h', negatable: false, help: 'Show help');
+  final createCmd = CreateCommand();
+  final generateCmd = GenerateCommand();
+  final buildCmd = BuildCommand();
+  final serveCmd = ServeCommand();
+
+  final parser = ArgParser();
+  
+  final createParser = parser.addCommand('create');
+  createParser.addOption('template', abbr: 't', defaultsTo: 'basic', help: 'Project template');
+  createParser.addFlag('force', abbr: 'f', negatable: false, help: 'Force overwrite');
+  createParser.addFlag('help', abbr: 'h', negatable: false);
+  
+  final generateParser = parser.addCommand('generate');
+  generateParser.addCommand('page');
+  generateParser.addCommand('component');
+  generateParser.addCommand('service');
+  generateParser.addFlag('help', abbr: 'h', negatable: false);
+  
+  final buildParser = parser.addCommand('build');
+  buildParser.addFlag('release', abbr: 'r', negatable: false, help: 'Release mode');
+  buildParser.addFlag('help', abbr: 'h', negatable: false);
+  
+  final serveParser = parser.addCommand('serve');
+  serveParser.addOption('port', abbr: 'p', defaultsTo: '3000', help: 'Server port');
+  serveParser.addFlag('help', abbr: 'h', negatable: false);
+  
+  parser.addFlag('help', abbr: 'h', negatable: false, help: 'Show help');
 
   try {
     final results = parser.parse(arguments);
@@ -23,21 +44,21 @@ void main(List<String> arguments) async {
 
     switch (results.command!.name) {
       case 'create':
-        await CreateCommand().run(results.command!);
+        await createCmd.run(results.command!);
         break;
       case 'generate':
-        await GenerateCommand().run(results.command!);
+        await generateCmd.run(results.command!);
         break;
       case 'build':
-        await BuildCommand().run(results.command!);
+        await buildCmd.run(results.command!);
         break;
       case 'serve':
-        await ServeCommand().run(results.command!);
+        await serveCmd.run(results.command!);
         break;
       default:
         _printUsage(parser);
     }
-  } catch (FormatException e) {
+  } on FormatException catch (e) {
     stderr.writeln('Error: ${e.message}');
     _printUsage(parser);
     exit(1);

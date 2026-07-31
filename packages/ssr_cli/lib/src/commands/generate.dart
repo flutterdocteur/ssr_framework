@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:args/args.dart';
-import 'package:path/path.dart' as path;
 
 class GenerateCommand {
   ArgParser get parser => ArgParser()
@@ -119,7 +118,7 @@ class ${className}Page extends SsrPageBase {
     final className = _toPascalCase(name);
     final fileName = _toSnakeCase(name);
 
-    final content = '''
+    final content = """
 import 'package:angulardart/angulardart.dart';
 
 @Component(
@@ -140,7 +139,7 @@ import 'package:angulardart/angulardart.dart';
 class ${className}Component {
   ${className}Component();
 }
-''';
+""";
 
     await File('lib/components/${fileName}_component.dart').writeAsString(content);
     print('✓ Generated component: lib/components/${fileName}_component.dart');

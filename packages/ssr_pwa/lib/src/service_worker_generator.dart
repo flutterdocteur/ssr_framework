@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 /// Service worker generator for PWA
 class ServiceWorkerGenerator {
   /// Generate service worker JavaScript

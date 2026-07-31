@@ -43,7 +43,7 @@ class TemplateUtils {
         .replaceAll(RegExp(r'^lib/pages/'), '')
         .replaceAll(RegExp(r'\.dart$'), '')
         .replaceAll(RegExp(r'/index$'), '')
-        .replaceAll(RegExp(r'\[(\w+)\]'), ':$1')
+        .replaceAll(RegExp(r'\[(\w+)\]'), ':\$1')
         .replaceAll('_', '-');
 
     if (route.isEmpty) return '/';

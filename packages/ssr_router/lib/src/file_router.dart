@@ -42,7 +42,7 @@ class FileRouter {
     var routePath = '/' + pathParts
         .map((part) => part
             .replaceAll('_page.dart', '')
-            .replaceAll(RegExp(r'\[(\w+)\]'), ':$1'))
+            .replaceAll(RegExp(r'\[(\w+)\]'), ':\$1'))
         .join('/');
 
     // Handle index pages
