@@ -1,8 +1,6 @@
 import 'dart:html';
-import 'package:angulardart/angulardart.dart';
 
 /// Meta service for dynamic SEO tags
-@Injectable()
 class MetaService {
   /// Update meta tags for current route
   void updateMeta({

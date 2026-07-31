@@ -5,6 +5,18 @@ All notable changes to SSR Framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.3] - 2025-07-31
+
+### Changed
+- ApiService now creates its own BrowserClient internally
+- Removed Client injection requirement
+
+## [0.1.2] - 2025-07-31
+
+### Changed
+- Removed AngularDart dependency from services
+- Services are now plain Dart classes, injection handled by the application
+
 ## [0.1.1] - 2025-07-31
 
 ### Fixed

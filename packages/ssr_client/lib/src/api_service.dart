@@ -1,13 +1,14 @@
 import 'dart:convert';
-import 'package:angulardart/angulardart.dart';
+import 'package:http/browser_client.dart';
 import 'package:http/http.dart';
 
 /// API service for client-server communication
-@Injectable()
 class ApiService {
-  final Client _http;
+  late final Client _http;
 
-  ApiService(this._http);
+  ApiService() {
+    _http = BrowserClient();
+  }
 
   /// Fetch data from API
   Future<Map<String, dynamic>> get(String path) async {

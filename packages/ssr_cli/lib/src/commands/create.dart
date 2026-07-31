@@ -77,6 +77,9 @@ class CreateCommand {
     // Create main client file
     await _createClientFile(name);
 
+    // Create app component
+    await _createAppComponent(name);
+
     // Create base template
     await _createBaseTemplate(name);
 
@@ -109,12 +112,12 @@ environment:
 dependencies:
   ssr_core: ^0.1.0
   ssr_server: ^0.1.0
-  ssr_client: ^0.1.1
+  ssr_client: ^0.1.3
   alfred: ^1.1.3
   jinja: ^0.6.7
   sqlite3: ^2.4.0
   http: ^1.2.0
-  angulardart: ^8.0.6
+  angulardart: ^8.0.8
 
 dev_dependencies:
   build_runner: ^2.4.0
@@ -130,8 +133,8 @@ dev_dependencies:
     final content = '''
 import 'package:ssr_core/ssr_core.dart';
 import 'package:ssr_server/ssr_server.dart';
-import 'pages/home_page.dart';
-import 'pages/about_page.dart';
+import '../lib/pages/home_page.dart';
+import '../lib/pages/about_page.dart';
 
 void main() async {
   final config = SsrConfig(
@@ -160,8 +163,6 @@ void main() async {
   Future<void> _createClientFile(String name) async {
     final content = '''
 import 'package:angulardart/angulardart.dart';
-import 'package:http/browser_client.dart';
-import 'package:http/http.dart';
 import 'package:ssr_client/ssr_client.dart';
 import 'app_component.template.dart' as ng;
 
@@ -178,11 +179,34 @@ void main() {
   ClassProvider(NavigationService),
   ClassProvider(ApiService),
   ClassProvider(MetaService),
-  ClassProvider(Client, useClass: BrowserClient),
 ])
 final appInjector = ngMain.appInjector\$Injector;
 ''';
     await File('$name/web/main.dart').writeAsString(content);
+  }
+
+  Future<void> _createAppComponent(String name) async {
+    final content = '''
+import 'package:angulardart/angulardart.dart';
+import 'package:ssr_client/ssr_client.dart';
+
+@Component(
+  selector: 'app-root',
+  template: '<div></div>',
+)
+class AppComponent {
+  final NavigationService _navigationService;
+  final ApiService _apiService;
+  final MetaService _metaService;
+
+  AppComponent(
+    this._navigationService,
+    this._apiService,
+    this._metaService,
+  );
+}
+''';
+    await File('$name/web/app_component.dart').writeAsString(content);
   }
 
   Future<void> _createBaseTemplate(String name) async {

@@ -1,10 +1,8 @@
 import 'dart:async';
 import 'dart:html';
-import 'package:angulardart/angulardart.dart';
 import 'package:ssr_core/ssr_core.dart';
 
 /// Navigation service for client-side routing
-@Injectable()
 class NavigationService implements SsrRouter {
   final _routeController = StreamController<String>.broadcast();
 
