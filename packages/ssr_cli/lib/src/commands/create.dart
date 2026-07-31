@@ -21,7 +21,7 @@ class CreateCommand {
       exit(1);
     }
 
-    final projectName = results.rest.first;
+    final projectName = results.rest.first.replaceAll('-', '_');
     final template = results['template'] as String;
     final force = results['force'] as bool;
 
@@ -107,30 +107,21 @@ environment:
   sdk: ^3.12.2
 
 dependencies:
-  ssr_core:
-    path: ../ssr_core
-  ssr_server:
-    path: ../ssr_server
-  ssr_client:
-    path: ../ssr_client
+  ssr_core: ^0.1.0
+  ssr_server: ^0.1.0
+  ssr_client: ^0.1.1
   alfred: ^1.1.3
   jinja: ^0.6.7
   sqlite3: ^2.4.0
   http: ^1.2.0
-  angulardart:
-    path: ../../../angulardart_upgrade_v3/angular/angular
+  angulardart: ^8.0.6
 
 dev_dependencies:
   build_runner: ^2.4.0
   build_web_compilers: ^4.0.0
-  lints: ^5.0.0
+  lints: ^4.0.0
   test: ^1.25.0
-  angulardart_test:
-    path: ../../../angulardart_upgrade_v3/angular/angular_test
-
-dependency_overrides:
-  angulardart:
-    path: ../../../angulardart_upgrade_v3/angular/angular
+  angulardart_test: ^5.0.2
 ''';
     await File('$name/pubspec.yaml').writeAsString(content);
   }

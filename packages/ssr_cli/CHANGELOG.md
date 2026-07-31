@@ -5,6 +5,20 @@ All notable changes to SSR Framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.4] - 2025-07-31
+
+### Fixed
+- Replace relative path dependencies with published versions from pub.dev
+- Use angulardart ^8.0.6 and angulardart_test ^5.0.2 from pub.dev
+- Use ssr_core ^0.1.0, ssr_server ^0.1.0, ssr_client ^0.1.1 from pub.dev
+- Downgrade lints to ^4.0.0 for compatibility with angulardart_test
+
+## [0.1.3] - 2025-07-31
+
+### Fixed
+- Normalize project names to use underscores (Dart identifier requirement)
+- Convert hyphens to underscores in project name, directory, and pubspec
+
 ## [0.1.2] - 2025-07-31
 
 ### Fixed
